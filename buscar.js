@@ -1,18 +1,17 @@
 function busquedaBinaria(vector, elemento) {
-  let min = 0;
-  let max = vector.lenght - 1;
-  let test;
+  let inicio = 0;
+  let final = vector.length - 1;
 
-  while (min <= max) {
-    const mitad = Math.floor((min + max) / 2);
-    test = vector[mitad];
+  while (inicio <= final) {
+    let mitad = Math.floor((inicio + final) / 2);
 
-    if (test < elemento) {
-      min = mitad + 1;
-    } else if (test > elemento) {
-      max = mitad - 1;
-    } else {
+    if (vector[mitad] < elemento) {
+      inicio = mitad + 1;
+    } else if (vector[mitad] > elemento) {
+      final = mitad - 1;
+    } else if (vector[mitad] === elemento) {
       return mitad;
     }
   }
 }
+console.log(busquedaBinaria([1, 2, 3, 4, 5, 6, 7, 8, 9], 8));
